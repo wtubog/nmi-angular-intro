@@ -1,0 +1,8 @@
+.media img {
+    flex-grow: 0;
+    max-width: 50%
+}
+
+.media {
+    margin-bottom: 30px;
+}
