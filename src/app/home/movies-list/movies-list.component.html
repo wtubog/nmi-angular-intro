@@ -1,6 +1,6 @@
 <div class="list-main">
-    <div *ngFor="let movie of movies" class="media">
-      <img class="mr-3" src="{{ movie.cover }}" alt="Generic placeholder image">
+    <div *ngFor="let movie of movies" class="media ">
+      <img class="mr-3 rounded" src="{{ movie.cover }}" alt="Generic placeholder image">
       <div class="media-body">
         <h5 class="mt-0" [innerHTML]="movie.title | searchHighlight: searchQuery"></h5>
         <i>

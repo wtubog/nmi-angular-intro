@@ -12,7 +12,6 @@
         class="form-control"
         ngModel
         name="title"
-        pattern="[a-zA-Z0-9\s]+"
         required>
       <div class="invalid-feedback">
         Please enter a valid value
@@ -30,7 +29,7 @@
         class="form-control"
         ngModel
         name="suggestedBy"
-        pattern="[a-zA-Z0-9\s]+"
+        pattern="[a-zA-Z\s]+"
         required>
         <div class="invalid-feedback">
           Please enter a valid value
@@ -50,7 +49,6 @@
         cols="30" 
         rows="10"
         ngModel
-        pattern="[a-zA-Z0-9\s]+"
         required></textarea>
         <div class="invalid-feedback">
             Please enter a valid value
@@ -70,13 +68,20 @@
         ngModel
         required>
         <div class="invalid-feedback">
-            Please enter a valid value
-          </div>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
+          Please enter a valid value
+        </div>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+
+        <div *ngIf="cover.value != ''" class="img-preview">
+          <img [src]="cover.value" alt="">
+        </div>
     </div>
 
     <button [disabled]='!movieForm.valid' type="submit" class="btn btn-primary">Submit</button>
+    <div class="progress" *ngIf="isLoading">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+    </div>
   </form>
 </div>
