@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { BehaviorSubject } from 'rxjs';
 import { Movie } from '../models/movie.model';
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -23,11 +23,16 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private title: Title
+    private title: Title,
+    private meta: Meta
   ) { }
 
   ngOnInit() {
     this.title.setTitle("Movies App");
+    this.meta.updateTag({ 
+        content: "NMI Angular Test",
+        name: "keywords"
+    });
     this.moviesService.getData()
       .subscribe(moviesList => {
         this.movies = moviesList;
