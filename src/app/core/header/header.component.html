@@ -1,18 +1,15 @@
 <div class="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Movies App</a>
+  <a class="navbar-brand" [routerLink]="['/']" href="#">Movies App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/suggest-movie']" [routerLinkActive]="'active'" href="#">Suggest Movie</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Suggest Movie</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" [routerLink]="['/about']" [routerLinkActive]="'active'" href="#">About</a>
       </li>
     </ul>
   </div>
