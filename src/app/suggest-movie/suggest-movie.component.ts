@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { SuggestMovieService } from './suggest-movie.service';
 import { delay } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-suggest-movie',
@@ -18,10 +19,12 @@ export class SuggestMovieComponent implements OnInit {
 
   constructor(
     private suggestMovieService: SuggestMovieService,
-    private router: Router
+    private router: Router,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle("Suggest a Movie!")
   }
 
   onSubmit(form: NgForm) {

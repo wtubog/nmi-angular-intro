@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from './movies.service';
 import { BehaviorSubject } from 'rxjs';
 import { Movie } from '../models/movie.model';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -21,10 +22,12 @@ export class HomeComponent implements OnInit {
   searchQuery: string;
 
   constructor(
-    private moviesService: MoviesService
+    private moviesService: MoviesService,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle("Movies App");
     this.moviesService.getData()
       .subscribe(moviesList => {
         this.movies = moviesList;
