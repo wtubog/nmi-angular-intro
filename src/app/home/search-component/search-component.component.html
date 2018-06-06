@@ -5,7 +5,12 @@
   <form>
     <div class="form-group row">
       <div class="col-lg">
-          <input type="email" class="form-control form-control-lg" placeholder="Search...">
+          <input 
+            (input)="onSearch(search.value)" 
+            type="text" 
+            class="form-control form-control-lg" 
+            placeholder="Search..."
+            #search>
       </div>
     </div>
   </form>

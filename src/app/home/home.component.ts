@@ -12,9 +12,10 @@ import { Movie } from '../models/movie.model';
   ]
 })
 export class HomeComponent implements OnInit {
+  
+  private movies: Movie[];
 
   private _moviesList = new BehaviorSubject<Movie[]>([]);
-
   moviesList$ = this._moviesList.asObservable();
 
   constructor(
@@ -24,8 +25,23 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.moviesService.getData()
       .subscribe(moviesList => {
+        this.movies = moviesList;
         this._moviesList.next(moviesList);
       });
+  }
+
+  onSearch(query: string) {
+    const filteredMoviesList = this.movies.filter((movie) => {
+      const _query = query.toLowerCase();
+      return movie.title.toLowerCase().indexOf(_query) > -1 ||
+        movie.synopsis.toLowerCase().indexOf(_query) > -1
+    });
+
+    if(filteredMoviesList.length) {
+      this._moviesList.next(filteredMoviesList); 
+    } else {
+      this._moviesList.next([]);
+    }
   }
 
 }
