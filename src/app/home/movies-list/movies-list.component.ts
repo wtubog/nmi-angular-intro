@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Movie } from './../../models/movie.model';
+import { MyListService } from '../../core/my-list.service';
 
 @Component({
   selector: 'app-movies-list',
@@ -14,9 +15,21 @@ export class MoviesListComponent implements OnInit {
   @Input()
   searchQuery: string;
 
-  constructor() { }
+  constructor(
+    private mlistService: MyListService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onAddToList(movie: Movie) {
+    this.mlistService.addItem(movie);
+  }
+
+  checkIfItemExists(movie: Movie): boolean {
+    const item = this.mlistService.checkIfMovieExistsInList(movie);
+
+    return item ? true : false;
   }
 
 }

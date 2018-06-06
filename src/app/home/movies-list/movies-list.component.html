@@ -7,9 +7,12 @@
             <i> Suggested by: {{ movie.suggestedBy }} </i>
             <div [innerHTML]="movie.synopsis | searchHighlight: searchQuery"></div>
         </div>
-        <div class="btn-holders">
-          <button class="btn btn-info">+ Add to MyList</button>
+        <div *ngIf="!checkIfItemExists(movie)" class="btn-holders">
+          <button (click)="onAddToList(movie)" class="btn btn-info">+ Add to MyList</button>
         </div>
+        <div *ngIf="checkIfItemExists(movie)" class="btn-holders">
+            <button class="btn btn-success">Added to MyList</button>
+          </div>
       </div>
     </div>
 </div>
