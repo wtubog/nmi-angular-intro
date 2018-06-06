@@ -1,3 +1,14 @@
-<p>
-  my-list works!
-</p>
+<div class="my-list-main">
+  <div class="left">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <div 
+        *ngFor="let movie of (myList$ | async); let i = index"
+        class="nav-link" 
+        (click)="onSelect(movie, i)"
+        aria-selected="true" appHighlight>{{ movie.title }}</div>
+    </div>
+  </div>
+  <div class="right">
+    <app-movie-preview></app-movie-preview>
+  </div>
+</div>

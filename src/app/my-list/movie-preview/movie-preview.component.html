@@ -1,0 +1,10 @@
+<div class="preview-main" *ngIf="(selected$ | async) as selected">
+  <img src="{{ selected.cover }}" alt="">
+  <h3>{{ selected.title }}</h3>
+  <div>
+    {{ selected.synopsis }}
+  </div>
+</div>
+<div style="padding: 0 10px;" *ngIf="!(selected$ | async)">
+  <h2>Select a movie from your list</h2>
+</div>

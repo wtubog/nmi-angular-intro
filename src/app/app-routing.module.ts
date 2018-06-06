@@ -18,6 +18,11 @@ const routes: Routes = [
     {
         path: 'my-list',
         loadChildren: './my-list/my-list.module#MyListModule'
+    },
+    {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: '/'
     }
 ];
 

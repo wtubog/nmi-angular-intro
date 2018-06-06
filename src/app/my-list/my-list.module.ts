@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { MyListComponent } from './my-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { MyListGuard } from '../core/my-list.guard';
+import { HighlightDirective } from './highlight.directive';
+import { MoviePreviewComponent } from './movie-preview/movie-preview.component';
 
 const routes: Routes = [
   {
@@ -17,6 +19,10 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [MyListComponent]
+  declarations: [
+    MyListComponent,
+    HighlightDirective,
+    MoviePreviewComponent
+  ]
 })
 export class MyListModule { }

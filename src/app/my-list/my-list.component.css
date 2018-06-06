@@ -1,0 +1,17 @@
+.my-list-main {
+    display: flex;
+} 
+
+.left  {
+    width: 30%;
+
+}
+
+.right  {
+    width: 70%;
+}
+
+.nav-link {
+    cursor: pointer;
+    color: #007bff;
+}
