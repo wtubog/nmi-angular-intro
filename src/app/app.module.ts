@@ -13,7 +13,7 @@ import { AboutComponent } from './about/about.component';
     AboutComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: "nmi-angular-intro"}),
     CoreModule,
     CoreModule,
     AppRoutingModule,
