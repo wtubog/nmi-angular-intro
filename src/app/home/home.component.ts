@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.title.setTitle("Movies App");
     this.meta.updateTag({ 
-        content: "NMI Angular Test",
+        content: "movies, angular",
         name: "keywords"
     });
+    
     this.moviesService.getData()
       .subscribe(moviesList => {
         this.movies = moviesList;
