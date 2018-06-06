@@ -5,27 +5,45 @@
   <form class='needs-validation' #movieForm="ngForm">
     <div class="form-group">
       <label for="formGroupExampleInput">Movie / Series Name</label>
-      <input 
+      <input
+        #title="ngModel" 
+        [ngClass]="{ 'is-invalid': title.touched && title.invalid, 'is-valid': title.touched && title.valid }"
         type="text" 
         class="form-control"
         ngModel
         name="title"
         pattern="[a-zA-Z0-9\s]+"
         required>
+      <div class="invalid-feedback">
+        Please enter a valid value
+      </div>
+      <div class="valid-feedback">
+        Looks good!
+      </div>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Your name</label>
       <input 
+        #name="ngModel" 
+        [ngClass]="{ 'is-invalid': name.touched && name.invalid, 'is-valid': name.touched && name.valid }"
         type="text" 
         class="form-control"
         ngModel
         name="suggestedBy"
         pattern="[a-zA-Z0-9\s]+"
         required>
+        <div class="invalid-feedback">
+          Please enter a valid value
+        </div>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Synopsis</label>
       <textarea 
+        #synopsis="ngModel" 
+        [ngClass]="{ 'is-invalid': synopsis.touched && synopsis.invalid, 'is-valid': synopsis.touched && synopsis.valid }"
         class="form-control" 
         name="synopsis" 
         id="" 
@@ -34,15 +52,29 @@
         ngModel
         pattern="[a-zA-Z0-9\s]+"
         required></textarea>
+        <div class="invalid-feedback">
+            Please enter a valid value
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
     </div>
     <div class="form-group">
       <label for="formGroupExampleInput2">Cover Image URL</label>
       <input 
+        #cover="ngModel" 
+        [ngClass]="{ 'is-invalid': cover.touched && cover.invalid, 'is-valid': cover.touched && cover.valid }"
         type="text" 
         class="form-control"
         name="cover"
         ngModel
         required>
+        <div class="invalid-feedback">
+            Please enter a valid value
+          </div>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
     </div>
 
     <button [disabled]='!movieForm.valid' type="button" class="btn btn-primary">Submit</button>
