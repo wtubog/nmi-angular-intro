@@ -11,3 +11,13 @@
     padding: 0;
     background-color: yellow;
 }
+
+.media-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-holders {
+    margin-top: 20px;
+}
