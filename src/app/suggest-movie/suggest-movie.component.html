@@ -2,7 +2,7 @@
   <h3>
     Share your favorite movie or series!
   </h3>
-  <form class='needs-validation' #movieForm="ngForm">
+  <form action="" (ngSubmit)="onSubmit(movieForm)" class='needs-validation' #movieForm="ngForm">
     <div class="form-group">
       <label for="formGroupExampleInput">Movie / Series Name</label>
       <input
@@ -77,6 +77,6 @@
           </div>
     </div>
 
-    <button [disabled]='!movieForm.valid' type="button" class="btn btn-primary">Submit</button>
+    <button [disabled]='!movieForm.valid' type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
