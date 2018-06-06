@@ -11,6 +11,9 @@ export class MoviesListComponent implements OnInit {
   @Input()
   movies: Movie[];
 
+  @Input()
+  searchQuery: string;
+
   constructor() { }
 
   ngOnInit() {

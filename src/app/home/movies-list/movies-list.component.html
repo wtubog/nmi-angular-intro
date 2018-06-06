@@ -2,8 +2,8 @@
     <div *ngFor="let movie of movies" class="media">
       <img class="mr-3" src="{{ movie.cover }}" alt="Generic placeholder image">
       <div class="media-body">
-        <h5 class="mt-0">{{ movie.title }}</h5>
-        {{ movie.synopsis }}
+        <h5 class="mt-0" [innerHTML]="movie.title | searchHighlight: searchQuery"></h5>
+        <div [innerHTML]="movie.synopsis | searchHighlight: searchQuery"></div>
       </div>
     </div>
 </div>

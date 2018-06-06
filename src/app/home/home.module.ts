@@ -5,6 +5,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchComponentComponent } from './search-component/search-component.component';
 import { MoviesListComponent } from './movies-list/movies-list.component';
+import { SearchHighlightPipe } from './search-highlight.pipe';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent, SearchComponentComponent, MoviesListComponent]
+  declarations: [
+    HomeComponent, 
+    SearchComponentComponent, 
+    MoviesListComponent, 
+    SearchHighlightPipe
+  ]
 })
 export class HomeModule { }

@@ -1,2 +1,4 @@
 <app-search-component (search)="onSearch($event)"></app-search-component>
-<app-movies-list  [movies]="moviesList$ | async" ></app-movies-list>
+<app-movies-list  
+    [movies]="moviesList$ | async" 
+    [searchQuery]="searchQuery"></app-movies-list>
