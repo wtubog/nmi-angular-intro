@@ -9,6 +9,8 @@ import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
 
+import * as useragent from 'express-useragent';
+
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -25,6 +27,8 @@ const template = readFileSync(join(DIST_FOLDER, 'index.html')).toString();
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist-server/main');
 
 const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
+
+app.use(useragent.express());
 
 app.engine('html', (_, options, callback) => {
   renderModuleFactory(AppServerModuleNgFactory, {
@@ -48,7 +52,11 @@ app.get('*.*', express.static(join(DIST_FOLDER)));
 
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render(join(DIST_FOLDER, 'index.html'), { req });
+  if(req.useragent.isBot || req.useragent.isCurl) {
+    res.render(join(DIST_FOLDER, 'index.html'), { req });
+  } else {
+    res.sendFile(join(DIST_FOLDER, 'index.html'));
+  }
 });
 
 // Start up the Node server

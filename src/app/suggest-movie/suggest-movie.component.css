@@ -13,3 +13,7 @@ h3 {
 .img-preview {
     margin-top: 20px;
 }
+
+img {
+    width: 100%;
+}
