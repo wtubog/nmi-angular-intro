@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  moviesApi: "https://4x72vd4oq1.execute-api.ap-southeast-1.amazonaws.com/prd/movies"
+  moviesApi: "http://localhost:8080/movies"
 };
 
 /*

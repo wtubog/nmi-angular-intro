@@ -11,7 +11,7 @@ export class MoviesService {
     private http: HttpClient
   ) { }
 
-  getData(): Observable<any> {
-    return this.http.get(environment.moviesApi);
+  getData(): Observable<Movie[]> {
+    return this.http.get<Movie[]>(environment.moviesApi);
   }
 }
