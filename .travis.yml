@@ -1,9 +1,5 @@
 sudo: required
 
-env:
-  global:
-    - PATH=$HOME/.local/bin:$PATH
-
 services:
   - docker
 
@@ -13,10 +9,14 @@ branches:
 
 install:
   - pip install --user awscli
+  - npm install
 
 script:
+  - npm run build:production
+
+after_success:
   - $(aws ecr get-login --no-include-email --region ap-southeast-1)
   - docker build -t movies-app .
   - docker tag movies-app:latest 187325535940.dkr.ecr.ap-southeast-1.amazonaws.com/movies-app:latest
   - docker push 187325535940.dkr.ecr.ap-southeast-1.amazonaws.com/movies-app:latest
-  # - aws ecs update-service --service movies-service-v5 --cluster movies-app-cluster2 --force-new-deploy
+  - aws ecs update-service --service movies-service-v5 --cluster movies-app-cluster2 --force-new-deploy
